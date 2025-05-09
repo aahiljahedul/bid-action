@@ -4,8 +4,20 @@ import Navbar from './component/Navbar/Navbar'
 import Hero from './component/Hero/Hero'
 import Footer from './component/Footer/Footer'
 import Bids from './component/Bids/Bids'
+import { useState } from 'react'
 function App() {
+  const [heartMark,setHeartMark] =useState([]);
+  const [totalBid,setTotalBid] =useState(0);
 
+
+const handleHeart = (bid) =>{
+setHeartMark([...heartMark,bid])
+
+}
+
+handleTotalbid = (amount)=> {
+  setTotalBid ([...totalBid+ amount])
+}
 
   return (
     <>
@@ -17,7 +29,7 @@ function App() {
     <p>Discover and bid on extraordinary items</p>
     
     <div className='flex justify-between gap-3 p-5'>
-      <div className='w-[70%] bg-white rounded-3xl  '><Bids></Bids></div>
+  <div className='w-[70%] bg-white rounded-3xl  '><Bids  handleHeart ={ handleHeart } heartMark={heartMark}  handleTotalbid= {handleTotalbid}></Bids></div>
       <div className='w-[30%] bg-white rounded-2xl'>
       <table className='table'>
 <thead className='text-center'>
@@ -28,9 +40,12 @@ function App() {
     <tbody className='text-center'>
       <tr><td className=''> <h3 className='font-bold'>No Favourites yet</h3>
         <p className='text-sm'>Click the heart icon on any item to add it to your favorites</p>
+        {
+          heartMark.map((marked)=> <p>{marked.item}</p>)
+        }
       </td>
       </tr>
-      <tr><td className='font-bold'>Total bids Amount : $0000</td></tr>
+      <tr><td className='font-bold'>Total bids Amount : {handleTotalbid}</td></tr>
 
     </tbody>
 </table>
