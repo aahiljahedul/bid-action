@@ -5,7 +5,7 @@ import Bid from '../Bid/Bid'
 
 
 
-const Bids = ({ handleHeart,handleTotalbid }) => {
+const Bids = ({ handleHeart,handleTotal }) => {
   const [bids,setBids]=useState([]);
 
   useEffect(()=>{
@@ -29,7 +29,7 @@ const Bids = ({ handleHeart,handleTotalbid }) => {
             </thead>
             <tbody>
               {
-              bids.map((bid)=><Bid key={bid.item} bid={bid}  handleHeart ={ handleHeart }  handleTotalbid= {handleTotalbid}></Bid>)
+              bids.map((bid)=><Bid key={bid.item} bid={bid}  handleHeart ={ handleHeart }  handleTotal ={handleTotal}></Bid>)
               }
             </tbody>
            </table>

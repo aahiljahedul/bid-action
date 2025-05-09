@@ -7,7 +7,7 @@ import Bids from './component/Bids/Bids'
 import { useState } from 'react'
 function App() {
   const [heartMark,setHeartMark] =useState([]);
-  const [totalBid,setTotalBid] =useState(0);
+
 
 
 const handleHeart = (bid) =>{
@@ -15,9 +15,7 @@ setHeartMark([...heartMark,bid])
 
 }
 
-handleTotalbid = (amount)=> {
-  setTotalBid ([...totalBid+ amount])
-}
+// }
 
   return (
     <>
@@ -29,7 +27,7 @@ handleTotalbid = (amount)=> {
     <p>Discover and bid on extraordinary items</p>
     
     <div className='flex justify-between gap-3 p-5'>
-  <div className='w-[70%] bg-white rounded-3xl  '><Bids  handleHeart ={ handleHeart } heartMark={heartMark}  handleTotalbid= {handleTotalbid}></Bids></div>
+  <div className='w-[70%] bg-white rounded-3xl  '><Bids  handleHeart ={ handleHeart } heartMark={heartMark}  ></Bids></div>
       <div className='w-[30%] bg-white rounded-2xl'>
       <table className='table'>
 <thead className='text-center'>
@@ -45,7 +43,7 @@ handleTotalbid = (amount)=> {
         }
       </td>
       </tr>
-      <tr><td className='font-bold'>Total bids Amount : {handleTotalbid}</td></tr>
+      <tr><td className='font-bold'> <p>Total bids Amount :$0000</p> </td></tr>
 
     </tbody>
 </table>
